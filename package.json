@@ -1,0 +1,31 @@
+{
+  "name": "nova-ops",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm:api\" \"vite --host 127.0.0.1\"",
+    "api": "node --watch server/index.js",
+    "start": "node server/index.js --serve-static",
+    "build": "vite build",
+    "reset-admin-password": "node scripts/reset-admin-password.js",
+    "preview": "npm run build && node server/index.js --serve-static"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.2.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5",
+    "helmet": "^8.3.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^10.0.7",
+    "vite": "^6.0.5"
+  }
+}
